@@ -242,14 +242,60 @@ Implement methods to "add an account", "deposit money" into an account, "withdra
 and "display account information". Test these methods by adding accounts, depositing, and withdrawing money.
 '''
 
+class BankAccount:
+    
+    def __init__(self, account_number, balance):
+        self.account_number = account_number
+        self.balance = balance
+
+
+    def deposit(self, amount):            
+        self.balance += amount
+        print(f"Your updated balance is £{self.balance}")
+
+
+    
+    def withdraw(self, amount):
+        print(f"Your current balance is £{self.balance}")
+        self.amount = amount
+        if self.amount > self.balance:
+            print("Insufficient funds, Try again")
+        else:
+            self.balance -= amount
+            print(f"You have successfully withdrew £{amount}, your updated balance is £{self.balance}")
+
+
 class Bank:
 
-    def __init__(self,accountList):
-        self.accountList = accountList
+    def __init__(self):
+        self.accountList = []
 
-    def deposit(self, deposit):
-        pass
+    def addAccount(self, newAccount):
+        self.accountList.append(newAccount)
+        return self.accountList
+    
+    def deposit(self, account_number, amount):
+        for account in self.accountList:
+            if account.account_number == account_number:
+                account.deposit(amount)
+                return
+            else:
+                print("account not found")
 
+    def withdraw(self, account_number, amount):
+        for account in self.accountList:
+            if account.account_number == account_number:
+                account.withdraw(amount)
+                return
+            else:
+                print("account not found")
+                
 
-chooseAccount = int(input("Enter your account number: "))
-accountList = [4344,1234,4321]
+b1 = Bank()
+
+acc1 = BankAccount(account_number=20984167, balance=400)
+
+b1.addAccount(acc1)
+
+b1.deposit(20984167, 300)
+b1.withdraw(20984167, 300)
