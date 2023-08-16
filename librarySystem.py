@@ -10,11 +10,10 @@ class Library:
 
     def addBook(self, bookName):
         self.books.append(bookName)
+        return bookName
+        
 
-
-
-
-class Book(Library):
+class Book:
     def __init__(self, title, author):
         self.title = title
         self.author = author
@@ -30,33 +29,41 @@ class Book(Library):
     def borrowBook(self):
         if self.available:
             self.available = False
-            print(f"You have borrowed {self.available}.")
+            print(f"You have borrowed {self.title}.")
         else:
             print(f"Sorry {self.title} has already been borrowed")
 
 
 
-class Member(Library):
+class Member:
     def __init__(self, name):
         self.name = name
         self.borrowedBooks = []
 
 
-    def borrowed(self, bookName):
-        if bookName.available:
-            bookName.borrowBook()
-            self.borrowedBooks.append(bookName)
+    def borrow(self, book):
+        if book.available:
+            book.borrowBook()
+            self.borrowedBooks.append(book)
         else:
-            print(f"Sorry {bookName.title} is unavailable")
+            print(f"Sorry, {book.title} is unavailable")
 
 
-lib1 = Library().addBook("Test Book")
-lib2 = Library().addBook("Another book")
-lib3 = Library().addBook("Big book")
+lib1 = Library()
+lib2 = Library()
+lib3 = Library()
+
+lib1.addBook("Test book")
+lib2.addBook("Another Book")
+lib3.addBook("OOP Programming")
 
 book1 = Book(lib1, "Suf")
 book2 = Book(lib2, "Elz")
 book3 = Book(lib3, "Hay")
 
+
+
+
 mem1 = Member("Sufyaan")
-mem1.borrowed(lib2)
+
+mem1.borrow(book1)
