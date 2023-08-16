@@ -10,8 +10,8 @@ Expand on your existing BankAccount class to include different types of accounts
 <!-- Employee Management System:
 Create a class called Employee with attributes like name, age, and salary. Implement methods for salary calculation and printing employee information. Then, create subclasses for different types of employees like Manager, Developer, and Designer. -->
 
-Library System:
-Design a library system with classes like Library, Book, and Member. The Library class should manage books and members, while the Book class should have attributes like title, author, and availability. The Member class can have attributes like name and borrowed books.
+<!-- Library System:
+Design a library system with classes like Library, Book, and Member. The Library class should manage books and members, while the Book class should have attributes like title, author, and availability. The Member class can have attributes like name and borrowed books. -->
 
 Vehicle Inheritance:
 Create a base class Vehicle with attributes like make, model, and year. Implement methods for starting and stopping the vehicle. Then create subclasses for different types of vehicles like Car, Motorcycle, and Truck.
